@@ -1,6 +1,15 @@
 
+/**
+ * @file team.cpp
+ * @author shaked levi
+ * @brief team header implemneation
+ * @version 0.1
+ * @date 2022-06-18
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include "team.hpp"
-
 
 ariel::team::team()
 {
@@ -11,7 +20,7 @@ ariel::team::team()
 
 ariel::team::team(std::string name1, int t)
 {
-    if(talent < 0 || talent > 1)
+    if (talent < 0 || talent > 1)
     {
         throw "talent must be between 0 to 1";
     }
@@ -28,7 +37,7 @@ int ariel::team::get_wins()
 
 void ariel::team::wins_update()
 {
-    ++(this->_wins); 
+    ++(this->_wins);
 }
 
 int ariel::team::get_game_score()
@@ -40,7 +49,6 @@ void ariel::team::set_game_score(int new_score)
 {
     this->_game_score = new_score;
 }
-
 
 std::string ariel::team::get_name()
 {

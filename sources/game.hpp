@@ -1,3 +1,14 @@
+/**
+ * @file game.hpp
+ * @author shaked levi
+ * @brief header file for game
+ * @version 0.1
+ * @date 2022-06-18
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #include <iostream>
 #include <vector>
 

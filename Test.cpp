@@ -1,69 +1,52 @@
+/**
+ * @file Test.cpp
+ * @author shaked levi
+ * @brief simple test case for project
+ * @version 0.1
+ * @date 2022-06-18
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #include "doctest.h"
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <stdexcept>
-#include <vector>
+
 #include "game.hpp"
-#include "Leauge.hpp"
+#include "league.hpp"
 #include "team.hpp"
-#include "Schedule.hpp"
-#include <string>
-using namespace std;
-using namespace ariel;
+#include "schedule.hpp"
 
-TEST_CASE("Good input -1") {
-    team a=team();
-    a->name="lior";
-    a->talent=10;
 
-    team b= team();
-    b->name="eliram";
-    b->talent=3;
+TEST_CASE("game 1") {
+    team *a= new team("ayelet",0.5);
+    team *b= new team("shaked",0.6);
 
-    game c=game(a,b);
-    CHECK(game->home->name="lior");
-    CHECK(game->out->name="eliram");
-    CHECK(game->home->how_mach!=0);
-    CHECK(game->out->how_mach!=0);
-    CHECK(game->home->how_mach<=100);
-    CHECK(game->out->how_mach<=100);
-    CHECK(game->home->how_mach>=55);
-    CHECK(game->out->how_mach>=50);
+    game *c = game(a,b);
+    
+    CHECK(c->_home->get_name()="shaked");
+    CHECK(c->_home->get_name()="ayelet");
+    CHECK(c->_home->get_wins()==0);
+    CHECK(c->_out->get_wins()==0);
+    CHECK(c->_home->get_game_score()<=100);
+    CHECK(c->_out->get_game_score()<=100);
+    CHECK(c->_home->get_game_score()>=55);
+    CHECK(c->_out->get_game_score()>=50);
 
 }
 
-TEST_CASE("Good input -2") {
-    team a=team();
-    a->name="liam";
-    a->talent=7;
+TEST_CASE("game 2") {
+    team *a= new team("gali",0.3);
+    team *b= new team("rozit",0.2);
 
-    team b= team();
-    b->name="ori";
-    b->talent=5;
 
     game c=game(b,a);
-    CHECK(game->home->name="ori");
-    CHECK(game->out->name="liam");
-    CHECK(game->home->how_mach!=0);
-    CHECK(game->out->how_mach!=0);
-    CHECK(game->home->how_mach<=100);
-    CHECK(game->out->how_mach<=100);
-    CHECK(game->home->how_mach>=50);
-    CHECK(game->out->how_mach>=55);
-}
-
-TEST_CASE("Good input -2") {
-    team a=team();
-    a->name="liam";
-    a->talent=7;
-
-    game c=game(a,a);
-    CHECK(game->home->name="laim");
-    CHECK(game->out->name="liam");
-    CHECK(game->home->how_mach<=100);
-    CHECK(game->out->how_mach<=100);
-    CHECK(game->home->how_mach>=50);
-    CHECK(game->out->how_mach>=50);
+    CHECK(c->_home->get_name()="gali");
+    CHECK(c->_home->get_name()="rozit");
+    CHECK(c->_home->get_wins()==0);
+    CHECK(c->_out->get_wins()==0);
+    CHECK(c->_home->get_game_score()<=100);
+    CHECK(c->_out->get_game_score()<=100);
+    CHECK(c->_home->get_game_score()>=55);
+    CHECK(c->_out->get_game_score()>=50);
 }
 
